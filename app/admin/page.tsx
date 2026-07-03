@@ -16,8 +16,6 @@ export default async function AdminPage() {
             },
         });
 
-
-
         console.log("Orders fetched:", orders.length, orders);
         console.log("Orders:", orders);
 
