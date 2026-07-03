@@ -67,19 +67,19 @@ export default async function AdminPage() {
         : `${chicken65Grams} g`;
 
         const newOrders = orders.filter(
-            (o) => o.status === "NEW"
+            (o: any) => o.status === "NEW"
         );
 
         const readyOrders = orders.filter(
-            (o) => o.status === "READY"
+            (o: any) => o.status === "READY"
         );
 
         const outOrders = orders.filter(
-            (o) => o.status === "OUT_FOR_DELIVERY"
+            (o: any) => o.status === "OUT_FOR_DELIVERY"
         );
 
         const deliveredOrders = orders.filter(
-            (o) => o.status === "DELIVERED"
+            (o: any) => o.status === "DELIVERED"
         );
 
         const revenue = orders.reduce(
