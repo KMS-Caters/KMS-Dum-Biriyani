@@ -20,31 +20,31 @@ export default async function AdminPage() {
         const today = new Date().toISOString().split("T")[0];
 
         const todaysOrders = orders.filter(
-            (order) =>
+            (order: any) =>
             order.createdAt.toISOString().split("T")[0] === today
         );
 
         const todaysRevenue = todaysOrders.reduce(
-            (sum, order) => sum + order.totalAmount,
+            (sum: number, order: any) => sum + order.totalAmount,
                                                   0
         );
 
         const chickenSold = todaysOrders.reduce(
-            (sum, order) => sum + order.chickenDumQty,
+            (sum: number, order: any) => sum + order.chickenDumQty,
                                                 0
         );
 
         const muttonSold = todaysOrders.reduce(
-            (sum, order) => sum + order.muttonDumQty,
+            (sum: number, order: any) => sum + order.muttonDumQty,
                                                0
         );
 
         const kesariSold = todaysOrders.reduce(
-            (sum, order) => sum + order.pineappleKesariQty,
+            (sum: number, order: any) => sum + order.pineappleKesariQty,
                                                0
         );
 
-        const chicken65Grams = todaysOrders.reduce((sum, order) => {
+        const chicken65Grams = todaysOrders.reduce((sum: number, order: any) => {
             switch (order.chicken65Size) {
                 case "100g":
                     return sum + 100;
@@ -83,7 +83,7 @@ export default async function AdminPage() {
         );
 
         const revenue = orders.reduce(
-            (sum, order) => sum + order.totalAmount,0
+            (sum: number, order: any) => sum + order.totalAmount,0
         );
 
         type Props = {
@@ -158,7 +158,7 @@ export default async function AdminPage() {
 
 
         <div className="space-y-4">
-                {newOrders.map((order) => (
+                {newOrders.map((order: any) => (
                     <OrderCard
                     key={order.id}
                     {...order}
@@ -175,7 +175,7 @@ export default async function AdminPage() {
                 </h2>
 
         <div className="space-y-4">
-                {readyOrders.map((order) => (
+                {readyOrders.map((order: any) => (
                     <OrderCard
                     key={order.id}
                     {...order}
@@ -190,7 +190,7 @@ export default async function AdminPage() {
                 </h2>
 
         <div className="space-y-4">
-                {outOrders.map((order) => (
+                {outOrders.map((order: any) => (
                     <OrderCard
                     key={order.id}
                     {...order}
@@ -205,7 +205,7 @@ export default async function AdminPage() {
                 </h2>
 
         <div className="space-y-4">
-                {deliveredOrders.map((order) => (
+                {deliveredOrders.map((order: any) => (
                     <OrderCard
                     key={order.id}
                     {...order}
