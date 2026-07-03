@@ -163,7 +163,7 @@ export default function OrderCard(props: OrderCardProps) {
 
     <button
     onClick={() => {
-        navigator.clipboard.writeText(props.deliveryAddress);
+        navigator.clipboard.writeText(props.deliveryAddress ?? "");
 
         const lat = props.latitude;
         const lng = props.longitude;
