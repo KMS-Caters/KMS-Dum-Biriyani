@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
 import OrderCard from "@/components/OrderCard";
 import { prisma } from "@/lib/prisma";
 import LiveClock from "@/components/LiveClock";
