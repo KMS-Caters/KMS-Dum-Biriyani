@@ -6,9 +6,7 @@ type Props = {
     latestOrderId: number;
 };
 
-export default function OrderNotifier({
-    latestOrderId,
-}: Props) {
+export default function OrderNotifier({ latestOrderId }: Props) {
     const previousId = useRef(latestOrderId);
 
     useEffect(() => {
@@ -17,7 +15,11 @@ export default function OrderNotifier({
             const audio = new Audio("/sounds/bell.mp3");
             audio.play().catch(() => {});
 
-            if (Notification.permission === "granted") {
+            if (
+                typeof window !== "undefined" &&
+                "Notification" in window &&
+                Notification.permission === "granted"
+            ) {
                 new Notification("🍗 New KMS Order", {
                     body: `Order #${latestOrderId} received`,
                 });
@@ -28,8 +30,12 @@ export default function OrderNotifier({
     }, [latestOrderId]);
 
     useEffect(() => {
-        if (Notification.permission === "default") {
-            Notification.requestPermission();
+        if (
+            typeof window !== "undefined" &&
+            "Notification" in window &&
+            Notification.permission === "default"
+        ) {
+            Notification.requestPermission().catch(() => {});
         }
     }, []);
 
