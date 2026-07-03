@@ -19,8 +19,6 @@ export default async function AdminPage() {
         console.log("Orders fetched:", orders.length, orders);
         console.log("Orders:", orders);
 
-        console.log("Orders:", orders.map(o => o.id));
-
         const latestOrderId =
         orders.length > 0 ? orders[0].id : 0;
 
