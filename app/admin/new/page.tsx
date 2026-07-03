@@ -57,7 +57,7 @@ export default async function NewOrdersPage() {
         </thead>
 
         <tbody>
-        {orders.map((order) => (
+        {orders.map((order: any) => (
             <tr
             key={order.id}
             className="border-t border-zinc-800"
