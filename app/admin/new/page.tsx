@@ -1,4 +1,4 @@
-app/admin/new/page.tsx
+
 import { prisma } from "@/lib/prisma";
 import Link from "next/link";
 import ReadyButton from "@/components/ReadyButton";
