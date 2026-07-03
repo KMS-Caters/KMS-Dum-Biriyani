@@ -33,6 +33,8 @@ export default function Home() {
   pineappleKesariQty * 30 +
   (chicken65Prices[chicken65Size] || 0);
 
+
+
   const [deliveryDate, setDeliveryDate] = useState("");
 
   const [deliveryTime, setDeliveryTime] = useState("");
