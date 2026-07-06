@@ -1,0 +1,10 @@
+ const now = new Date();
+
+  const selected = new Date(
+    `${deliveryDate}T${deliveryTime}:00`
+  );
+
+  if (selected < now) {
+    alert("Delivery date & time cannot be in the past.");
+    return;
+  }
