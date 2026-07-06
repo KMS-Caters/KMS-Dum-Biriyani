@@ -181,7 +181,7 @@ export default function OrderCard(props: OrderCardProps) {
         `intent://maps.google.com/maps?q=${lat},${lng}(${label})` +
         `#Intent;scheme=https;action=android.intent.action.VIEW;end`;
 
-        window.location.href = intent;
+        window.location.assign(intent);
     }}
     className="flex-1 bg-orange-600 hover:bg-orange-700 py-2 rounded-lg font-semibold"
     >
