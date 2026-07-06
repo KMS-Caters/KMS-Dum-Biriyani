@@ -163,18 +163,22 @@ export default function OrderCard(props: OrderCardProps) {
 
     <button
     onClick={() => {
-        navigator.clipboard.writeText(props.deliveryAddress ?? "");
-
         const lat = props.latitude;
         const lng = props.longitude;
 
-        window.location.href =
-        `intent://maps.google.com/maps?q=${lat},${lng}` +
-        "#Intent;scheme=https;action=android.intent.action.VIEW;end";
+        if (!lat || !lng) {
+            alert("Location not available");
+            return;
+        }
+
+        const label = encodeURIComponent(props.deliveryAddress ?? "Customer");
+
+        const intent =
+        `intent://maps.google.com/maps?q=${lat},${lng}(${label})` +
+        `#Intent;scheme=https;action=android.intent.action.VIEW;end`;
+
+        window.location.href = intent;
     }}
-    className="flex-1 bg-orange-600 hover:bg-orange-700 py-2 rounded-lg font-semibold"
-    >
-    🚚 Book Porter
     </button>
     {props.status === "NEW" && (
         <button
