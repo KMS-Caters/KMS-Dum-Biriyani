@@ -171,13 +171,11 @@ export default function OrderCard(props: OrderCardProps) {
             return;
         }
 
-        const label = encodeURIComponent(props.deliveryAddress ?? "Customer");
+        const url =
+        `intent://maps.google.com/maps?q=${lat},${lng}` +
+        `#Intent;scheme=https;package=com.google.android.apps.maps;end`;
 
-        const intent =
-        `intent://maps.google.com/maps?q=${lat},${lng}(${label})` +
-        `#Intent;scheme=https;action=android.intent.action.VIEW;end`;
-
-        window.location.href = intent;
+        window.location.href = url;
     }}
     </button>
     {props.status === "NEW" && (
